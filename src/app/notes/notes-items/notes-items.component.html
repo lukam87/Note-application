@@ -1,0 +1,38 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Main Notes</a>
+    </div>
+  </nav>
+</div>
+<button class="btn btn-lg btn-outline-primary" (click)="addNote()">
+  Add note
+</button>
+
+<div class="container">
+  <div class="row list-group" *ngFor="let note of notes">
+    <a href="#" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1">{{ note.title }}</h6>
+        <div>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm position-absolute"
+            id="danger"
+            (click)="deleteNote(note)"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-sm"
+            (click)="editNote(note)"
+          >
+            Edit Notes
+          </button>
+        </div>
+      </div>
+      <p class="mb-1">{{ note.content }}</p>
+    </a>
+  </div>
+</div>
